@@ -1,13 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "NGoBook", root_path, id: "logo" %>
-      beta
+      <%= link_to "NGOHOOK", root_path, id: "logo" %>
+      <small_head>beta</small_head>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home",    root_path %></li>
-          <li><%= link_to "Help",    help_path %></li>
-          <li><%= link_to "Sign in", '#' %></li>
+          <li class="<%= yield(:title).casecmp("Home")==0? "active": "" %>" ><%= link_to "Home",    root_path %></li>
+          <li class="<%= yield(:title).casecmp("Help")==0? "active": "" %>" ><%= link_to "Help",    help_path %></li>
+          <li class="<%= yield(:title).casecmp("Sign in")==0? "active": "" %>" ><%= link_to "Sign in", '#' %></li>
         </ul>
       </nav>
     </div>
