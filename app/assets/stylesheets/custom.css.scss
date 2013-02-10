@@ -80,10 +80,7 @@ float: left;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+  
 }
 
 #logo {
@@ -142,7 +139,7 @@ footer {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 80%;
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
