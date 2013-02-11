@@ -2,7 +2,6 @@
   <div class="navbar-inner">
     <div class="container">
       <%= link_to image_tag("ngohook.png",alt: "NGOHOOK"), root_path, id: "logo" %>
-      <small_head>beta</small_head>
       <nav>
         <ul class="nav pull-right">
           <li class="<%= yield(:title).casecmp("Home")==0? "active": "" %>" ><%= link_to "Home",    root_path %></li>
