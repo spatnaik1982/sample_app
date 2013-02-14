@@ -1,13 +1,16 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to image_tag("ngohook.png",alt: "NGOHOOK"), root_path, id: "logo" %>
+      <%= link_to "NGOHOOK", root_path, class: "brand" %>
       <nav>
         <ul class="nav pull-right">
           <li class="<%= yield(:title).casecmp("Home")==0? "active": "" %>" ><%= link_to "Home",    root_path %></li>
           <li class="<%= yield(:title).casecmp("Help")==0? "active": "" %>" ><%= link_to "Help",    help_path %></li>
+          <li class="<%= yield(:title).casecmp("Browse")==0? "active": "" %>" ><%= link_to "Browse",    "#" %></li>
           <% if signed_in? %>
+           <% if current_user.admin? %>
             <li class="<%= yield(:title).casecmp("All users")==0? "active": "" %>"><%= link_to "Users", users_path %></li>
+           <% end %>
 	    <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 Account<b class="caret"></b>
@@ -16,18 +19,16 @@ Account<b class="caret"></b>
                 <li><small_blue>Hi, <%= current_user.firstname %></small_blue></li>
                 <li class="divider"></li>
                 <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings",edit_user_path(current_user)  %></li>
-                <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>
                 </li>
               </ul>
             </li>    
           <% else %>
-          <li class="<%= yield(:title).casecmp("Sign in")==0? "active": "" %>" ><%= link_to "Sign in", signin_path %></li>
+          <li class="<%= yield(:title).casecmp("Sign in")==0? "active": "" %>" ><%= link_to "Sign in", "/auth/facebook" %></li>
           <% end %>
         </ul>
       </nav>
     </div>
   </div>
-</header>
+</div>

@@ -45,6 +45,16 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def facebook_login
+     @user1 = User.from_omniauth(env["omniauth.auth"])
+     sign_in @user1
+     redirect_to @user1
+
+#      omniauth = request.env['omniauth.auth']   # This contains all the details of the user say Email, Name, Age so that you can store it in your application db.
+#      redirect_to root_url
+    end
+  end
+
   private
 
     def signed_in_user
@@ -62,4 +72,3 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
-end

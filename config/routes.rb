@@ -4,6 +4,9 @@ SampleApp::Application.routes.draw do
  resources :sessions, only: [:new, :create, :destroy]
 
 root to: 'static_pages#home'
+#  match 'auth/:provider/callback', to: 'sessions#create'
+#  match 'auth/failure', to: redirect('/')
+ match '/auth/:provider/callback', to: 'users#facebook_login'
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

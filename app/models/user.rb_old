@@ -11,21 +11,18 @@ class User < ActiveRecord::Base
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-#  validates :password, presence: true, length: { minimum: 6 }
-#  validates :password_confirmation, presence: true
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
 
   def self.from_omniauth(auth)
-    find_by_email(auth.info.email) || create_with_omniauth(auth)
-  end
-  def self.create_with_omniauth(auth)
-    create! do |user1|
-      user1.firstname = auth.info.first_name
-      user1.lastname = auth.info.last_name
-      user1.email = auth.info.email
-      user1.password = "121123" 
-      user1.password_confirmation = "121123"
+    where(auth.slice(:email)).first_or_initialize.tap do |user|
+      user.firstname = auth.info.first_name
+      user.lastname = auth.info.last_name
+      user.email = auth.info.email
+      user.password = "121123" 
+      user.password_confirmation = "121123"
   
-      user1.save!
+      user.save!
     end
   end
 
