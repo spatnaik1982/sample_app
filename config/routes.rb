@@ -3,6 +3,8 @@ SampleApp::Application.routes.draw do
  resources :users
  resources :sessions, only: [:new, :create, :destroy]
 
+mount Monologue::Engine, at: '/blog'
+
 root to: 'static_pages#home'
 #  match 'auth/:provider/callback', to: 'sessions#create'
 #  match 'auth/failure', to: redirect('/')

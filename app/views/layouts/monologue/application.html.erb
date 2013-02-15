@@ -7,18 +7,20 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>    
-    <%= render 'layouts/titlehead' %>    
+   <div class="jumbotron ">
+     <BR>
+     <BR>
+
+     <h1> Blog </h1>
+     <h2> Life Beyond Profit </h2>
+   </div>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
+    <%= render 'layouts/header1' %>
+      <div class="container hero-unit">
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
-    </div>
+      </div>
+      <%= render 'layouts/footer1' %>
   </body>
 </html>
 
