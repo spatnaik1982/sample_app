@@ -49,6 +49,25 @@ background: url(/back2.png) repeat center center;
 opacity: .04;
 }
 
+.masthead {
+padding: 70px 0 20px;
+margin-bottom: 0;
+color: #fff;
+}
+
+.masthead h1 {
+font-size: 60px;
+line-height: 1;
+letter-spacing: -2px;
+}
+
+.masthead p {
+font-size: 40px;
+font-weight: 200;
+line-height: 1.25;
+color: $grayLight;
+}
+
 .navbar .brand {
     color: #000000;
     float: left;
