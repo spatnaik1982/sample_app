@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :firstname, :lastname, :email, :password, :password_confirmation
+  attr_accessible :firstname, :lastname, :email, :password, :password_confirmation, :photo_url
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
       user1.firstname = auth.info.first_name
       user1.lastname = auth.info.last_name
       user1.email = auth.info.email
+      user1.photo_url = auth.info.image
       user1.password = "121123" 
       user1.password_confirmation = "121123"
   

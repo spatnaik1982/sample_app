@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215092922) do
+ActiveRecord::Schema.define(:version => 20130217141729) do
 
   create_table "monologue_posts", :force => true do |t|
     t.integer  "posts_revision_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130215092922) do
     t.datetime "updated_at",                         :null => false
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
+    t.string   "photo_url"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

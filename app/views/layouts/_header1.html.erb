@@ -1,8 +1,17 @@
 <div class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "NGOHOOK", "/", class: "brand" %>
       <nav>
+        <ul class="nav pull-right">
+          <li class="<%= yield(:title).casecmp("Home")==0? "active": "" %>" ><%= link_to "Home",    "/" %></li>
+          <li class="<%= yield(:title).casecmp("Help")==0? "active": "" %>" ><%= link_to "Help",    "/help" %></li>
+          <li class="<%= yield(:title).casecmp("Browse")==0? "active": "" %>" ><%= link_to "Browse",    "#" %></li>
+          <li class="active"><%= link_to "Blog",    "/blog" %></li>
+
+        </ul>
+      <ul class="nav pull-left">
+      <%= link_to "NGOHOOK", root_path, class: "brand" %>
+      </ul>
       </nav>
     </div>
   </div>

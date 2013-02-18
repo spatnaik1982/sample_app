@@ -49,10 +49,11 @@ class UsersController < ApplicationController
      @user1 = User.from_omniauth(env["omniauth.auth"])
      sign_in @user1
      redirect_to @user1
-
-#      omniauth = request.env['omniauth.auth']   # This contains all the details of the user say Email, Name, Age so that you can store it in your application db.
-#      redirect_to root_url
     end
+  end
+
+  def failure
+    redirect_to root_url, alert: "Authentication failed, please try again."
   end
 
   private

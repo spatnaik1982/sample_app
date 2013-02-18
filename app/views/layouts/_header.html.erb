@@ -17,7 +17,7 @@
 Account<b class="caret"></b>
 </a>
               <ul class="dropdown-menu">
-                <li><small_blue>Hi, <%= current_user.firstname %></small_blue></li>
+                <li><small_blue> <%= current_user.firstname %></small_blue></li>
                 <li class="divider"></li>
                 <li><%= link_to "Profile", current_user %></li>
                 <li>
@@ -26,7 +26,7 @@ Account<b class="caret"></b>
               </ul>
             </li>    
           <% else %>
-          <li class="<%= yield(:title).casecmp("Sign in")==0? "active": "" %>" ><%= link_to "Sign in", "/auth/facebook" %></li>
+            <li> <a href="#myModal" role="button"  data-toggle="modal">Sign in</a> </li>
           <% end %>
         </ul>
       <ul class="nav pull-left">
